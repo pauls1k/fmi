@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+#define size 100
+
+class stackk
+{
+    int stck[size];
+    int tos;
+public:
+    void init();
+    void push(int i);
+    int pop();
+};
+
+void stackk::init()
+{
+    tos = 0;
+}
+
+void stackk::push(int i)
+{
+    if(tos==size)
+    {
+        cout<< "stack full\n";
+        return;
+    }
+    stck[tos] = i;
+    tos++;
+}
+
+int stackk::pop()
+{
+    if(tos==0)
+    {
+        cout<< "stack empty";
+        return 0;
+    }
+    tos--;
+    return stck[tos];
+}
+
+int main()
+{
+    stackk s1, s2;
+
+    s1.init();
+    s2.init();
+
+    s1.push(1);
+    s2.push(2);
+    s1.push(3);
+    s2.push(4);
+
+    cout<< s1.pop()<<" ";
+    cout<< s1.pop()<<" ";
+    cout<< s2.pop()<<" ";
+    cout<< s2.pop()<<" ";
+
+    return 0;
+}
+
