@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+#define size 100
+
+/// supraincarcam abs de 3 ori
+int abs(int i);
+double abs(double d);
+long abs(long l);
+
+
+int main()
+{
+    cout << abs(-5)<<endl;
+    cout<< abs(-12.4)<<endl;
+    cout<< abs(-9L)<<endl;
+}
+
+int abs(int i)
+{
+    cout<<"Abs Int"<<endl;
+    if(i<0)
+    {
+        i=-i;
+    }
+    return i;
+}
+
+double abs(double d)
+{
+    cout<<"Abs Double"<<endl;
+    return d<0 ? -d :d;
+}
+
+long abs(long l)
+{
+    cout<<"Abs Long"<<endl;
+    return l<0 ? -l : l;
+}
+
