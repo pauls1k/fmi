@@ -1,0 +1,67 @@
+#include <iostream>
+
+using namespace std;
+
+
+class stackk
+{
+    int stck[100];
+    int tos;
+public:
+    stackk(); /// constructorul
+    ~stackk(); /// destructorul
+    void push(int i);
+    int pop();
+};
+
+stackk::stackk()
+{
+    tos = 0;
+    cout<< "constructor"<<endl;
+}
+
+stackk::~stackk()
+{
+    cout<< "destructor"<<endl;
+}
+
+void stackk::push(int i)
+{
+    if(tos==100)
+    {
+        cout<< "stack full"<<endl;
+        return;
+    }
+    stck[tos] = i;
+    tos++;
+}
+
+int stackk::pop()
+{
+    if(tos==0)
+    {
+        cout<< "stack empty"<<endl;
+        return 0;
+    }
+    tos--;
+    return stck[tos];
+}
+
+int main()
+{
+    stackk a,b;
+
+    a.push(1);
+    b.push(2);
+
+    a.push(3);
+    b.push(4);
+
+    cout << a.pop() << " ";
+    cout << a.pop() << " ";
+
+    cout << b.pop() << " ";
+    cout << b.pop() << " "<< endl;
+
+    return 0;
+}
