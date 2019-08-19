@@ -1,0 +1,126 @@
+#include <iostream>
+
+using namespace std;
+
+
+class building
+{
+    int rooms;
+    int floors;
+    int area;
+public:
+    void set_rooms(int value);
+    int get_rooms();
+    void set_floors(int value);
+    int get_floors();
+    void set_area(int value);
+    int get_area();
+};
+
+/// avem clasa house care deriva din building !
+
+class house : public building
+{
+    int bedrooms;
+    int bathrooms;
+public:
+    void set_bedrooms(int value);
+    int get_bedrooms();
+    void set_bathrooms(int value);
+    int get_bathrooms();
+};
+
+void building::set_rooms(int value)
+{
+    rooms = value;
+}
+
+int building::get_rooms()
+{
+    return rooms;
+}
+
+void building::set_floors(int value)
+{
+    floors = value;
+}
+
+int building::get_floors()
+{
+    return floors;
+}
+
+void building::set_area(int value)
+{
+    area = value;
+}
+
+int building::get_area()
+{
+    return area;
+}
+
+void house::set_bedrooms(int value)
+{
+    bedrooms = value;
+}
+
+int house::get_bedrooms()
+{
+    return bedrooms;
+}
+
+void house::set_bathrooms(int value)
+{
+    bathrooms = value;
+}
+
+int house::get_bathrooms()
+{
+    return bathrooms;
+}
+
+int main()
+{
+    int cont;
+    char rasp;
+    house h;
+    cout << "Doriti sa configurati o casa? ( Y / N)" << endl;
+    cin >> rasp;
+    rasp = toupper(rasp);
+    if(rasp=='N')
+    {
+        cout<< "Ati ales NU"<<endl;
+        return 0;
+    }else if(rasp=='Y')
+    {
+        cout<< "Numar camere: ";
+        cin >> cont;
+        h.set_rooms(cont);
+
+        cout<< "Numar etaje: ";
+        cin >> cont;
+        h.set_floors(cont);
+
+        cout<< "Suprafata ( mp ): ";
+        cin >> cont;
+        h.set_area(cont);
+
+        cout<< "Numar dormitoare: ";
+        cin >> cont;
+        h.set_bedrooms(cont);
+
+        cout<< "Numar bai: ";
+        cin >> cont;
+        h.set_bathrooms(cont);
+
+    }else
+    {
+        cout << "Reincercati"<<endl;
+        return 0;
+    }
+
+    cout<<endl;
+    cout<< "Casa ta are "<<h.get_rooms()<< " camere";
+//    h.set_rooms();
+}
