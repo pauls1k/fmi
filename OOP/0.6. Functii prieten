@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+
+class myclass
+{
+    int a, b;
+public:
+    friend int sum(myclass x);
+    void set_ab(int i, int j);
+};
+
+void myclass::set_ab(int i, int j)
+{
+    a = i;
+    b = j;
+}
+
+int sum(myclass x) /// functia sum este prietena clasei
+{                 /// myclass, deci ii poate accesa pe a si b
+    return x.a + x.b;
+}
+
+int main()
+{
+    myclass a;
+
+    a.set_ab(2,3);
+
+    cout<< sum(a);
+
+    return 0;
+}
