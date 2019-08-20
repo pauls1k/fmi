@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+
+class twoValues
+{
+    int a;
+    int b;
+public:
+    twoValues(int i, int j)
+    {
+        a =i;
+        b =j;
+    }
+    friend class minn;
+};
+
+class minn
+{
+public:
+    int Min(twoValues x);
+};
+
+int minn::Min(twoValues x)
+{
+    return x.a<x.b ? x.a : x.b;
+}
+
+int main()
+{
+    twoValues q(2,3);
+
+    minn m;
+
+
+
+    cout<< m.Min(q);
+}
+
