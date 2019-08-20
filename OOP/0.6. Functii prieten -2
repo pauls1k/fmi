@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+
+const int idlee = 0;
+const int inuse = 1;
+
+class c2; /// declaram clasa de la inceput
+
+class c1
+{
+    int status;
+public:
+    void set_status(int value);
+    int idle(c2 b);
+
+};
+
+class c2
+{
+    int status;
+public:
+    void set_status(int value);
+    friend int c1::idle(c2 b);
+};
+
+void c1::set_status(int value)
+{
+    status = value;
+}
+
+void c2::set_status(int value)
+{
+    status = value;
+}
+
+int c1::idle(c2 b)
+{
+    if(this->status || b.status)
+        return 0;
+    else
+        return 1;
+}
+
+int main()
+{
+    c1 x;
+    c2 y;
+
+    x.set_status(idlee);
+    y.set_status(idlee);
+
+    if(x.idle(y))
+        cout<< "da";
+    else
+        cout<< "nu";
+}
