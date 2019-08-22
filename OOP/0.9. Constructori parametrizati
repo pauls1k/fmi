@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+
+class clasa
+{
+    int a;
+    int b;
+public:
+    clasa(int i, int j)
+    {
+        a = i;
+        b = j;
+    }
+    void show();
+
+};
+
+inline void clasa::show()
+{
+    cout<< a << " " << b;
+}
+
+int main()
+{
+    clasa c(4,5);
+    /// sau ///
+
+    ///clasa c = clasa(4,5);
+    /// asta implica copy constructorul
+    c.show();
+
+}
+
+////////////////////
+
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+
+const int in_stoc = 1;
+const int epuizat = 0;
+
+class carte
+{
+    char titlu[40];
+    char autor[40];
+    int stare;
+public:
+    carte(char t[], char a[], int s);
+    void show();
+};
+
+carte::carte(char t[], char a[], int s)
+{
+    strcpy(titlu, t);
+    strcpy(autor, a);
+    stare = s;
+}
+
+void carte::show()
+{
+    cout << "Cartea " << titlu << " de " << autor << " este ";
+    if(stare == in_stoc)
+        cout << "in stoc!" << endl;
+    else
+        cout << "in afara stocului!" << endl;
+}
+
+int main()
+{
+    carte c = carte("Heidi", "Pula mea", in_stoc);
+
+    c.show();
+    return 0;
+ }
+
