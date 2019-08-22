@@ -1,0 +1,83 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+
+class shared
+{
+    static int a;
+    int b;
+public:
+    shared(int i, int j);
+    void show();
+};
+
+shared::shared(int i, int j)
+{
+    a = i;
+    b = j;
+}
+
+int shared::a;
+
+void shared::show()
+{
+    cout<< a << " " << b;
+}
+
+int main()
+{
+    shared x(2, 2);
+    shared y(1, 1);
+
+    x.show();
+}
+
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+
+class counter
+{
+public:
+    static int countt;
+    counter();
+    ~counter();
+};
+
+int counter:: countt;
+
+void f();
+
+counter::counter()
+{
+    countt++;
+}
+
+counter::~counter()
+{
+    countt--;
+}
+
+int main()
+{
+    counter c1, a,b,c,v;
+
+    cout<< counter::countt;
+
+    f();
+
+    cout<< counter::countt;
+}
+
+
+void f()
+{
+   counter temp;
+   cout << "Objects in existence: ";
+   cout << counter::countt << "\n";
+   // temp is destroyed when f() returns
+}
