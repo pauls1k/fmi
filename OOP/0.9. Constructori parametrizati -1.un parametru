@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+
+class clasa
+{
+    int a;
+public:
+    clasa(int i);
+    void show();
+};
+
+clasa::clasa(int i)
+{
+    a = i;
+}
+
+inline void clasa::show()
+{
+    cout<< a;
+}
+
+int main()
+{
+    clasa x= 2;
+
+    x.show();
+
+}
