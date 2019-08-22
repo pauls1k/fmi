@@ -1,0 +1,58 @@
+/// Exemplu functie inline xplicita
+
+#include <iostream>
+
+using namespace std;
+
+
+inline int maxim(int i, int j)
+{
+    return i<j ? j : i;
+}
+
+int main()
+{
+    cout<< maxim(9,3);
+
+    return 0;
+}
+
+
+/// Exemplu functie inline implicita
+
+
+#include <iostream>
+
+using namespace std;
+
+
+class clasa
+{
+    int a;
+    int b;
+public:
+    void init(int i, int j);   /// asa este cel mai corect !!!!
+    void show()
+    {
+        cout<< a << " " << b;   /// exemplu de inline automat
+    }                           /// scriem codulfunctiei directin clasa
+};                              /// nu se recomanda!!!!!!!!!
+
+inline void clasa::init(int i, int j)  /// asa este cel mai corect !!!!
+{
+    a = i;
+    b = j;
+}
+
+
+int main()
+{
+    clasa c;
+
+    c.init(3, 4);
+
+    c.show();
+
+    return 0;
+}
+
